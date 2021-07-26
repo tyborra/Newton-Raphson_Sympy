@@ -1,22 +1,25 @@
 
 def newton_raph(fx, theta_0, thresh, x_data):        
+    ''''    Function to implement the Newton Raphson Method
+    '''
+    
     n_iterations = 0
     
-    #get d1 and d2
+    #get the first and second derivative
     d1 = sp.diff(fx, theta)
     d2 = sp.diff(d1, theta) 
    
-    init_session()
-    init_printing()
-    print(d1)
-    sp.pprint(d1, use_unicode = True)
-    print(sp.latex(d1))
+    print('\nLatex Equations')
+    print('Original Function:  ', sp.latex(fx))
+    print('First Derivative:   ', sp.latex(d1))
+    print('Second Derivative:  ',sp.latex(d2))
     
-    #initialize theta1
-    d_sub = d1.subs(theta, theta_0)
+    #initialize the first derivative
+    d_sub = d1.subs(theta, theta_0)    
     d1_lam = sp.lambdify( x, d_sub, "numpy")
     d_1 = sum((d1_lam(x_data)))
     
+    #Iterate using the Newton Raphson method while theta is < thresh 
     while abs(d_1) > thresh: 
         n_iterations +=1
         d1_sub = d1.subs(theta, theta_0)
@@ -27,22 +30,18 @@ def newton_raph(fx, theta_0, thresh, x_data):
         d2_lam = sp.lambdify( x, d2_sub, "numpy")
         d_2 = np.sum((d2_lam(x_data)))        
         
-        #assign new value to theta        
+        #assign new value to theta for next iteration         
         theta_0 = theta_0 - d_1/d_2         
         
     theta_hat = theta_0
     print('\ntheta hat: ', theta_hat)    
-    return theta_0    
+    return theta_hat   
 
 
 if __name__ == "__main__":
     import sympy as sp
     from sympy.abc import i
-    import numpy as np
-    from sympy import init_printing
-    from sympy import init_session
-     
-     
+    import numpy as np     
     
     #create data
     n=10
