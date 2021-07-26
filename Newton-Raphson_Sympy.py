@@ -1,6 +1,6 @@
 
 def newton_raph(fx, theta_0, thresh, x_data):        
-    ''''    Function to implement the Newton Raphson Method
+    ''''    Function to implement the Newton Raphson method
     '''
     
     n_iterations = 0
@@ -34,7 +34,8 @@ def newton_raph(fx, theta_0, thresh, x_data):
         theta_0 = theta_0 - d_1/d_2         
         
     theta_hat = theta_0
-    print('\ntheta hat: ', theta_hat)    
+    print('\nNumber of iterations: ', n_iterations)
+    print('theta hat: ', theta_hat)    
     return theta_hat   
 
 
@@ -51,6 +52,7 @@ if __name__ == "__main__":
     #declare the sympy function
     theta = sp.Symbol('theta')
     x = sp.Symbol('x')
+    
     fx = 1551*theta -sp.Sum( (sp.exp(theta*x) ),(i, 0, 9))
 
 
