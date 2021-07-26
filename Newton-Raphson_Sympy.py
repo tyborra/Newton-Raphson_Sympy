@@ -6,6 +6,10 @@ def newton_raph(fx, theta_0, thresh, x_data):
     d1 = sp.diff(fx, theta)
     d2 = sp.diff(d1, theta) 
     
+    print(d1)
+    sp.pprint(d1, use_unicode = True)
+    print(sp.latex(d1))
+    
     #initialize theta1
     d_sub = d1.subs(theta, theta_0)
     d1_lam = sp.lambdify( x, d_sub, "numpy")
@@ -21,14 +25,11 @@ def newton_raph(fx, theta_0, thresh, x_data):
         d2_lam = sp.lambdify( x, d2_sub, "numpy")
         d_2 = np.sum((d2_lam(x_data)))        
         
-        print('\niter: ',n_iterations)
-        print('theta: ', theta_0)
-        print('d1: ', d_1)
-        
+        #assign new value to theta        
         theta_0 = theta_0 - d_1/d_2         
         
     theta_hat = theta_0
-    print('theta hat: ', theta_hat)    
+    print('\ntheta hat: ', theta_hat)    
     return theta_0    
 
 
@@ -36,6 +37,8 @@ if __name__ == "__main__":
     import sympy as sp
     from sympy.abc import i
     import numpy as np
+    from sympy import init_printing
+    init_printing() 
     
     #create data
     n=10
