@@ -2,9 +2,7 @@
 def newton_raph(fx, theta_0, thresh, x_data):        
     ''''    Function to implement the Newton Raphson method
     '''
-    
-    n_iterations = 0
-    
+        
     #get the first and second derivative
     d1 = sp.diff(fx, theta)
     d2 = sp.diff(d1, theta) 
@@ -19,7 +17,9 @@ def newton_raph(fx, theta_0, thresh, x_data):
     d1_lam = sp.lambdify( x, d_sub, "numpy")
     d_1 = sum((d1_lam(x_data)))
     
-    #Iterate using the Newton Raphson method while theta is < thresh 
+    #Iterate using the Newton Raphson method while theta is < thresh
+    n_iterations = 0    #Number of iterations to complete
+    
     while abs(d_1) > thresh: 
         n_iterations +=1
         d1_sub = d1.subs(theta, theta_0)
