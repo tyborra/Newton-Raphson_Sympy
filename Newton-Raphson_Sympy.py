@@ -1,7 +1,3 @@
-import sympy as sp
-from sympy.abc import i
-import numpy as np
-
 
 def newton_raph(fx, theta_0, thresh, x_data):        
     n_iterations = 0
@@ -37,6 +33,10 @@ def newton_raph(fx, theta_0, thresh, x_data):
 
 
 if __name__ == "__main__":
+    import sympy as sp
+    from sympy.abc import i
+    import numpy as np
+    
     #create data
     n=10
     j=np.arange(1,n+1,1)
