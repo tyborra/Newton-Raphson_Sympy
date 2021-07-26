@@ -45,7 +45,7 @@ if __name__ == "__main__":
     #declare the sympy function
     theta = sp.Symbol('theta')
     x = sp.Symbol('x')
-    fx = 1551*theta -sp.Sum( (sp.exp(theta*x) ),(i, 0, 10))
+    fx = 1551*theta -sp.Sum( (sp.exp(theta*x) ),(i, 0, 9))
 
 
     #run function
