@@ -55,11 +55,21 @@ if __name__ == "__main__":
     theta = sp.Symbol('theta')
     x = sp.Symbol('x')
     
-    fx = 1551*theta -sp.Sum( (sp.exp(theta*x) ),(i, 0, 9))
+    fx = 1551*theta - sp.Sum( (sp.exp(theta*x) ),(i, 0, 9))
     theta_init = 3    #initial guess of theta
     thresh = 1e-10    #threshold for theta
     
     #Sample 2
     data = pd.read_csv(r'data/test_data.csv')
+    x = data['x']
+    y = data['y']  
+    
+    theta = sp.Symbol('theta')
+    x = sp.Symbol('x')
+    y = sp.symbol('y')
+    
+    fx = 1/2 * sp.sum()
+    
     #run function
     newton_raph(fx=fx, theta_0=theta_init, thresh=thresh, x_data = data)
+    
