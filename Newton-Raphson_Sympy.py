@@ -42,13 +42,14 @@ def newton_raph(fx, theta_0, thresh, x_data):
 if __name__ == "__main__":
     import sympy as sp
     from sympy.abc import i
-    import numpy as np     
+    import numpy as np 
+    import pandas as pd    
     
     #Sample 1    
     #create synthetic data
     n=10
     j=np.arange(1,n+1,1)
-    x_data = -3.1+6*j/n
+    data = -3.1+6*j/n
     
     #declare the sympy function
     theta = sp.Symbol('theta')
@@ -59,6 +60,6 @@ if __name__ == "__main__":
     thresh = 1e-10    #threshold for theta
     
     #Sample 2
-
+    data = pd.read_csv(r'data/test_data.csv')
     #run function
-    newton_raph(fx=fx, theta_0=theta_init, thresh=thresh, x_data = x_data)
+    newton_raph(fx=fx, theta_0=theta_init, thresh=thresh, x_data = data)
