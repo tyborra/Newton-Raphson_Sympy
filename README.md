@@ -1,2 +1,2 @@
-# Newton-Raphson_Sympy
+# Newton-Raphson Method using Sympy
  
