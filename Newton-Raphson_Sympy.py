@@ -34,7 +34,7 @@ def newton_raph(fx, theta_0, thresh, x_data):
         theta_0 = theta_0 - d_1/d_2         
         
     theta_hat = theta_0
-    print('\nNumber of iterations: ', n_iterations)
+    print('\nNumber of Iterations: ', n_iterations)
     print('theta hat: ', theta_hat)    
     return theta_hat   
 
@@ -44,17 +44,18 @@ if __name__ == "__main__":
     from sympy.abc import i
     import numpy as np     
     
-    #create data
+    #create synthetic data
     n=10
     j=np.arange(1,n+1,1)
-    x_data = -3+6*j/n
+    x_data = -3.1+6*j/n
 
     #declare the sympy function
     theta = sp.Symbol('theta')
     x = sp.Symbol('x')
     
     fx = 1551*theta -sp.Sum( (sp.exp(theta*x) ),(i, 0, 9))
-
+    theta_init = 3    #initial guess of theta
+    thresh = 1e-10    #threshold for theta
 
     #run function
-    newton_raph(fx=fx, theta_0=3, thresh=1e-10, x_data = x_data)
+    newton_raph(fx=fx, theta_0=theta_init, thresh=thresh, x_data = x_data)
