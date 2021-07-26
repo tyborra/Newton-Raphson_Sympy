@@ -49,7 +49,7 @@ if __name__ == "__main__":
     #create synthetic data
     n=10
     j=np.arange(1,n+1,1)
-    data = -3.1+6*j/n
+    data = -3.1 + 6*j/n
     
     #declare the sympy function
     theta = sp.Symbol('theta')
@@ -59,17 +59,20 @@ if __name__ == "__main__":
     theta_init = 3    #initial guess of theta
     thresh = 1e-10    #threshold for theta
     
-    #Sample 2
-    data = pd.read_csv(r'data/test_data.csv')
-    x = data['x']
-    y = data['y']  
+    #Sample 2 (work in progress)
+# =============================================================================
+#     data = pd.read_csv(r'data/test_data.csv')
+#     x_data = data['x']
+#     y_data = data['y']  
+#     
+#     theta = sp.Symbol('theta')
+#     x = sp.Symbol('x')
+#     y = sp.symbol('y')
+#     
+#     fx = 1/2 * sp.sum( (y-sp.exp(theta*x))**2),(i, 0, len(x_data-1)))
+# =============================================================================
     
-    theta = sp.Symbol('theta')
-    x = sp.Symbol('x')
-    y = sp.symbol('y')
-    
-    fx = 1/2 * sp.sum()
     
     #run function
-    newton_raph(fx=fx, theta_0=theta_init, thresh=thresh, x_data = data)
+    newton_raph(fx=fx, theta_0=theta_init, thresh=thresh, x_data = x_data)
     
