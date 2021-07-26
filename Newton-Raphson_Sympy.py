@@ -5,7 +5,9 @@ def newton_raph(fx, theta_0, thresh, x_data):
     #get d1 and d2
     d1 = sp.diff(fx, theta)
     d2 = sp.diff(d1, theta) 
-    
+   
+    init_session()
+    init_printing()
     print(d1)
     sp.pprint(d1, use_unicode = True)
     print(sp.latex(d1))
@@ -38,7 +40,9 @@ if __name__ == "__main__":
     from sympy.abc import i
     import numpy as np
     from sympy import init_printing
-    init_printing() 
+    from sympy import init_session
+     
+     
     
     #create data
     n=10
