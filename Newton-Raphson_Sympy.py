@@ -44,11 +44,12 @@ if __name__ == "__main__":
     from sympy.abc import i
     import numpy as np     
     
+    #Sample 1    
     #create synthetic data
     n=10
     j=np.arange(1,n+1,1)
     x_data = -3.1+6*j/n
-
+    
     #declare the sympy function
     theta = sp.Symbol('theta')
     x = sp.Symbol('x')
@@ -56,6 +57,8 @@ if __name__ == "__main__":
     fx = 1551*theta -sp.Sum( (sp.exp(theta*x) ),(i, 0, 9))
     theta_init = 3    #initial guess of theta
     thresh = 1e-10    #threshold for theta
+    
+    #Sample 2
 
     #run function
     newton_raph(fx=fx, theta_0=theta_init, thresh=thresh, x_data = x_data)
