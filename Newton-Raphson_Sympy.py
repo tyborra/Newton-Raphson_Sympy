@@ -49,7 +49,7 @@ if __name__ == "__main__":
     #create synthetic data
     n=10
     j=np.arange(1,n+1,1)
-    data = -3.1 + 6*j/n
+    x_data = -3.1 + 6*j/n
     
     #declare the sympy function
     theta = sp.Symbol('theta')
