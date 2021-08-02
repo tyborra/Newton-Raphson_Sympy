@@ -1,6 +1,7 @@
 
 def newton_raph(fx, theta_0, thresh, x_data):        
-    ''''    Function to implement the Newton Raphson method
+    '''
+        Function to implement the Newton Raphson method
     '''
         
     #get the first and second derivative
