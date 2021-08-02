@@ -5,4 +5,3 @@ The Newton-Raphson method uses an iterative method to find roots of equations. T
 
 
 This implementation uses Sympy to compute the first and second derivative before using them to find the root. 
-
